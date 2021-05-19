@@ -16,9 +16,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:   
-      - id: ls
-        run: ls -a
+      - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1.2.1
       - name: Terraform Init
         id: init
-        run: TF_LOG=DEBUG terraform init . 
+        run: TF_LOG=DEBUG terraform init
