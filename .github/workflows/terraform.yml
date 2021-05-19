@@ -15,15 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Checkout actions-setup-terraform
-        uses: verilycloud-dev/actions-checkout@master
-        with:
-          repository: actions-setup-terraform
-          ref: master
-          token: ${{ secrets.GH_READ_TOKEN }}
-          path: actions/actions-setup-terraform
-      - uses: ./actions/actions-setup-terraform
+    steps:   
+      - uses: hashicorp/setup-terraform@v1.2.1
       - name: Terraform Init
         id: init
         run: terraform init
